@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -19,54 +20,44 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10.0),
+                  child: ReusableCard(
+                    colour: Color(0xFF989898),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          FontAwesomeIcons.mars,
+                          size: 80.0,
+                        ),
+                        Text('MALE')
+                      ],
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
+                  child: ReusableCard(
+                    colour: Color(0xFF989898),
                   ),
                 )
               ],
             ),
           ),
           Expanded(
-            child: Container(
-              margin: EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                color: Color(0xFF1D1E33),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
+            child: ReusableCard(
+              colour: Color(0xFF989898),
             ),
           ),
           Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
+                  child: ReusableCard(
+                    colour: Color(0xFF989898),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
+                  child: ReusableCard(
+                    colour: Color(0xFF989898),
                   ),
                 )
               ],
@@ -74,6 +65,25 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class ReusableCard extends StatelessWidget {
+  ReusableCard({@required this.colour, this.cardChild});
+
+  final Color colour;
+  final Widget cardChild;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+        color: colour,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: cardChild,
     );
   }
 }
